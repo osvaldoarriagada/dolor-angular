@@ -1,0 +1,212 @@
+<h1 class="text-center"> <br> Registro Unidad de Dolor</h1> 
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="card-body">
+            <h6 class="card-title mb-3">Agregar Paciente</h6>
+            
+            <form (ngSubmit)="addPaciente()">
+                <!-- Campos del Paciente -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="rol">Rol</label>
+                            <input class="form-control" [(ngModel)]="paciente.rol" name="rol" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control" [(ngModel)]="paciente.nombre" name="nombre" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="edad">Edad</label>
+                            <input class="form-control" [(ngModel)]="paciente.edad" name="edad" type="number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="rut">RUT</label>
+                            <input class="form-control" [(ngModel)]="paciente.rut" name="rut" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="prevision">Previsión</label>
+                            <input class="form-control" [(ngModel)]="paciente.prevision" name="prevision" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="cama_hospitalizacion">Cama Hospitalización</label>
+                            <input class="form-control" [(ngModel)]="paciente.cama_hospitalizacion" name="cama_hospitalizacion" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="diagnostico">Diagnóstico</label>
+                            <input class="form-control" [(ngModel)]="paciente.diagnostico" name="diagnostico" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="cirujano">Cirujano</label>
+                            <input class="form-control" [(ngModel)]="paciente.cirujano" name="cirujano" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="cirugia">Cirugía</label>
+                            <input class="form-control" [(ngModel)]="paciente.cirugia" name="cirugia" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tratamiento -->
+                <h6 class="card-title mb-3 mt-4">Tratamiento</h6>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="tratamiento_modalidad">Modalidad de Tratamiento</label>
+                            <select class="form-control" [(ngModel)]="paciente.tratamiento_modalidad" name="tratamiento_modalidad" (change)="onModalidadChange()">
+                                <option value="">Selecciona una modalidad</option>
+                                <option value="PCA Endovenosa">PCA Endovenosa</option>
+                                <option value="PCA Peridural">PCA Peridural</option>
+                                <option value="Bomba Elastomérica">Bomba Elastomérica</option>
+                                <option value="Paciente Crónico">Paciente Crónico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="tratamiento_medicamento">Medicamento</label>
+                            <select class="form-control" [(ngModel)]="paciente.tratamiento_medicamento" name="tratamiento_medicamento">
+                                <option value="">Selecciona un medicamento</option>
+                                <option *ngFor="let medicamento of medicamentosDisponibles" [value]="medicamento">{{ medicamento }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipo de Bloqueo -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="tipo_bloqueo">Tipo de Bloqueo</label>
+                            <select class="form-control" [(ngModel)]="paciente.tipo_bloqueo" name="tipo_bloqueo">
+                                <option value="">Selecciona un tipo de bloqueo</option>
+                                <option value="Interescalénico">Interescalénico</option>
+                                <option value="Tronco Superior">Tronco Superior</option>
+                                <option value="Costoclavicular">Costoclavicular</option>
+                                <option value="Infraclavicular">Infraclavicular</option>
+                                <option value="Plano Erector Espinal">Plano Erector Espinal</option>
+                                <option value="Paravertebral">Paravertebral</option>
+                                <option value="Femoral">Femoral</option>
+                                <option value="Vértice Femoral">Vértice Femoral</option>
+                                <option value="Ciático Anterior">Ciático Anterior</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Factores de Riesgo -->
+                <h6 class="card-title mb-3 mt-4">Factores de Riesgo</h6>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="dm">DM</label>
+                            <select class="form-control" [(ngModel)]="paciente.factores_riesgo.DM" name="DM">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="hiperglicemia">Hiperglicemia >200ug/dL preoperatoria</label>
+                            <select class="form-control" [(ngModel)]="paciente.factores_riesgo['Hiperglicemia >200ug/dL preoperatoria']" name="Hiperglicemia">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="corticoides">Uso corticoides crónico</label>
+                            <select class="form-control" [(ngModel)]="paciente.factores_riesgo['Uso corticoides crónico']" name="Uso_corticoides">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="inmunodeprimido">Inmunodeprimido</label>
+                            <select class="form-control" [(ngModel)]="paciente.factores_riesgo.Inmunodeprimido" name="Inmunodeprimido">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="uci">Hospitalización en UCI durante la hospitalización actual</label>
+                            <select class="form-control" [(ngModel)]="paciente.factores_riesgo['Hospitalización en UCI durante la hospitalización actual']" name="Hospitalizacion_UCI">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de Envío -->
+                <div class="d-flex flex-column text-center px-5 mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary btn-block">Agregar Paciente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

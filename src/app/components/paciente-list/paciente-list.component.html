@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h2>Lista de Pacientes</h2>
+    
+    <!-- Botón para agregar un nuevo paciente -->
+    <div class="mb-3 text-right">
+      <button class="btn btn-success" [routerLink]="['/paciente/add']">Agregar Paciente</button>
+    </div>
+  
+    <ul class="list-group">
+      <li *ngFor="let paciente of pacientes" class="list-group-item d-flex justify-content-between align-items-center">
+        <span>{{ paciente.nombre }} - {{ paciente.rol }}</span>
+        <button class="btn btn-primary btn-sm" [routerLink]="['/pacientes', paciente.id]">Ver Detalle</button>
+      </li>
+    </ul>
+  </div>

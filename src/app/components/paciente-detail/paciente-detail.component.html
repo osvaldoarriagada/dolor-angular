@@ -1,0 +1,170 @@
+<h1 class="text-center"> <br> Registro Unidad de Dolor</h1> 
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="card-body">
+            <h6 class="card-title mb-3">Detalle del Paciente</h6>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="rol">Rol</label>
+                        <input class="form-control" type="text" id="rol" [value]="paciente?.rol" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input class="form-control" type="text" id="nombre" [value]="paciente?.nombre" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <input class="form-control" type="number" id="edad" [value]="paciente?.edad" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="rut">RUT</label>
+                        <input class="form-control" type="text" id="rut" [value]="paciente?.rut" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="prevision">Previsión</label>
+                        <input class="form-control" type="text" id="prevision" [value]="paciente?.prevision" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="cama_hospitalizacion">Cama Hospitalización</label>
+                        <input class="form-control" type="text" id="cama_hospitalizacion" [value]="paciente?.cama_hospitalizacion" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="diagnostico">Diagnóstico</label>
+                        <input class="form-control" type="text" id="diagnostico" [value]="paciente?.diagnostico" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="cirujano">Cirujano</label>
+                        <input class="form-control" type="text" id="cirujano" [value]="paciente?.cirujano" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="cirugia">Cirugía</label>
+                        <input class="form-control" type="text" id="cirugia" [value]="paciente?.cirugia" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="card-title mb-3 mt-4">Tratamiento</h6>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="tratamiento_modalidad">Modalidad de Tratamiento</label>
+                        <input class="form-control" type="text" id="tratamiento_modalidad" [value]="paciente?.tratamiento_modalidad" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="tratamiento_medicamento">Medicamento</label>
+                        <input class="form-control" type="text" id="tratamiento_medicamento" [value]="paciente?.tratamiento_medicamento" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="tipo_bloqueo">Tipo de Bloqueo</label>
+                        <input class="form-control" type="text" id="tipo_bloqueo" [value]="paciente?.tipo_bloqueo" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="card-title mb-3 mt-4">Factores de Riesgo</h6>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="dm">DM</label>
+                        <input class="form-control" type="text" id="dm" [value]="paciente?.factores_riesgo?.DM" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="hiperglicemia">Hiperglicemia >200ug/dL preoperatoria</label>
+                        <input class="form-control" type="text" id="hiperglicemia" [value]="paciente?.factores_riesgo?.['Hiperglicemia >200ug/dL preoperatoria']" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="corticoides">Uso corticoides crónico</label>
+                        <input class="form-control" type="text" id="corticoides" [value]="paciente?.factores_riesgo?.['Uso corticoides crónico']" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="inmunodeprimido">Inmunodeprimido</label>
+                        <input class="form-control" type="text" id="inmunodeprimido" [value]="paciente?.factores_riesgo?.Inmunodeprimido" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="uci">Hospitalización en UCI durante la hospitalización actual</label>
+                        <input class="form-control" type="text" id="uci" [value]="paciente?.factores_riesgo?.['Hospitalización en UCI durante la hospitalización actual']" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column text-center px-5 mt-3 mb-3">
+                <small class="agree-text">¿Seguro que deseas eliminar este paciente?</small>
+                <button class="btn btn-danger btn-block confirm-button" (click)="deletePaciente()">Eliminar Paciente</button>
+            </div>
+        </div>
+    </div>
+</div>
