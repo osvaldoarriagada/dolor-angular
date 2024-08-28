@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -55,6 +58,11 @@ export class PacienteService {
         catchError(this.handleError<any>('deletePaciente'))
       );
   }
+
+  terminarTratamiento(id: number): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}/terminar-tratamiento`, {});
+}
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

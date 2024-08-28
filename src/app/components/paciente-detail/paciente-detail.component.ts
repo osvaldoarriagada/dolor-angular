@@ -43,4 +43,13 @@ export class PacienteDetailComponent implements OnInit {
       this.error = 'Error eliminando el paciente';
     }
   }
+
+  async terminarTratamiento(): Promise<void> {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    try {
+      this.paciente = await firstValueFrom(this.pacienteService.terminarTratamiento(id));
+    } catch (error) {
+      this.error = 'Error terminando el tratamiento';
+    }
+  }
 }

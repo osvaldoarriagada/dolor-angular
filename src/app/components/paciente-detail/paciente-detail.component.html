@@ -161,9 +161,14 @@
                 </div>
             </div>
 
+            <p><strong>Activo:</strong> {{ paciente.activo ? 'Sí' : 'No' }}</p>
+            <p><strong>Fecha de Creación:</strong> {{ paciente.created_at | date:'short' }}</p>
+    <p *ngIf="paciente.fecha_termino"><strong>Fecha de Término:</strong> {{ paciente.fecha_termino | date }}</p>
+
             <div class="d-flex flex-column text-center px-5 mt-3 mb-3">
                 <small class="agree-text">¿Seguro que deseas eliminar este paciente?</small>
                 <button class="btn btn-danger btn-block confirm-button" (click)="deletePaciente()">Eliminar Paciente</button>
+                <button *ngIf="paciente.activo" class="btn btn-warning" (click)="terminarTratamiento()">Terminar Tratamiento</button>
             </div>
         </div>
     </div>

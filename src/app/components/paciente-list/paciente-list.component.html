@@ -1,15 +1,75 @@
 <div class="container mt-5">
     <h2>Lista de Pacientes</h2>
     
+    <!-- Botones para alternar entre activos e inactivos -->
+    <div class="mb-3">
+      <button class="btn btn-primary" (click)="toggleView(true)" [class.active]="showActivos">Ver Activos</button>
+      <button class="btn btn-secondary" (click)="toggleView(false)" [class.active]="!showActivos">Ver Inactivos</button>
+    </div>
+  
     <!-- Botón para agregar un nuevo paciente -->
     <div class="mb-3 text-right">
       <button class="btn btn-success" [routerLink]="['/paciente/add']">Agregar Paciente</button>
     </div>
   
-    <ul class="list-group">
-      <li *ngFor="let paciente of pacientes" class="list-group-item d-flex justify-content-between align-items-center">
-        <span>{{ paciente.nombre }} - {{ paciente.rol }}</span>
-        <button class="btn btn-primary btn-sm" [routerLink]="['/pacientes', paciente.id]">Ver Detalle</button>
-      </li>
-    </ul>
+    <!-- Selección de campo y campo de búsqueda -->
+    <div class="form-group mb-3">
+      <div class="input-group">
+        <select class="form-control" [(ngModel)]="selectedField" (ngModelChange)="onFieldChange($event)">
+          <option value="nombre">Nombre</option>
+          <option value="rol">Rol</option>
+          <option value="edad">Edad</option>
+          <option value="rut">RUT</option>
+          <option value="prevision">Previsión</option>
+          <option value="cama_hospitalizacion">Cama Hospitalización</option>
+          <option value="diagnostico">Diagnóstico</option>
+          <option value="cirujano">Cirujano</option>
+          <option value="cirugia">Cirugía</option>
+          <option value="activo">Activo</option>
+          <option value="fecha_termino">Fecha de Término</option>
+          <option value="created_at">Fecha de Creación</option>
+        </select>
+  
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchChange($event)"
+        />
+      </div>
+    </div>
+  
+    <!-- Tabla de Pacientes -->
+    <div class="table-responsive">
+      <table class="table table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Cama Hospitalización</th>
+            <th scope="col">Diagnóstico</th>
+            <th scope="col">Cirujano</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of filteredPacientes">
+            <th scope="row">{{ paciente.id }}</th>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.edad }}</td>
+            <td>{{ paciente.cama_hospitalizacion }}</td>
+            <td>{{ paciente.diagnostico }}</td>
+            <td>{{ paciente.cirujano }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" [routerLink]="['/paciente', paciente.id]">Ver Detalle</button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredPacientes.length === 0" class="text-center">
+            <td colspan="7">No se encontraron pacientes {{ showActivos ? 'activos' : 'inactivos' }}.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
